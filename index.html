@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10月27日–11月11日 巴黎→里斯本→巴塞隆納 16天行程</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
 
   :root {
     --bg:        #faf9f7;
@@ -18,6 +18,7 @@
     --text-sec:  #5a5a5a;
     --text-ter:  #9a9a9a;
     --link:      #185FA5;
+    --accent:    #534AB7;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -31,6 +32,7 @@
       --text-sec:  #a8a6a0;
       --text-ter:  #666460;
       --link:      #85B7EB;
+      --accent:    #9B93E0;
     }
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,8 +40,10 @@
     font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--bg); color: var(--text);
     min-height: 100vh; padding: 32px 16px 64px;
+    -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--link); }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
   .container { max-width: 740px; margin: 0 auto; }
 
   header { margin-bottom: 24px; }
@@ -80,9 +84,11 @@
   .dn2 { font-size: 11px; color: var(--text-ter); margin-top: 6px; padding: 3px 9px; background: var(--surface2); border-radius: 6px; display: inline-block; line-height: 1.65; }
   .dn2.warn  { background: #faeeda; color: #633806; }
   .dn2.alert { background: #faece7; color: #712b13; }
+  .dn2.tip   { background: #e8f4ec; color: #1a5c2e; }
   @media (prefers-color-scheme: dark) {
     .dn2.warn  { background: #2e2210; color: #f0c070; }
     .dn2.alert { background: #2e1410; color: #f09070; }
+    .dn2.tip   { background: #122218; color: #7cd49a; }
   }
 
   .tr { display: flex; background: var(--surface2); border-bottom: 0.5px solid var(--border); }
@@ -98,6 +104,17 @@
   .book-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 8px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .book-text { font-size: 12px; color: var(--text-sec); line-height: 1.65; }
   .book-text strong { color: var(--text); font-weight: 500; }
+
+  /* Practical Tips Panel */
+  .tips-panel { border: 0.5px solid var(--border-md); border-radius: 14px; overflow: hidden; background: var(--surface); margin-top: 4px; }
+  .tips-header { padding: 11px 15px; background: var(--surface2); font-size: 13px; font-weight: 500; border-bottom: 0.5px solid var(--border); }
+  .tips-section { padding: 14px 15px; border-bottom: 0.5px solid var(--border); }
+  .tips-section:last-child { border-bottom: none; }
+  .tips-section-title { font-size: 12px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .tips-item { font-size: 12px; color: var(--text-sec); line-height: 1.75; margin-bottom: 6px; padding-left: 16px; position: relative; }
+  .tips-item::before { content: '·'; position: absolute; left: 4px; font-weight: 700; color: var(--text-ter); }
+  .tips-item:last-child { margin-bottom: 0; }
+  .tips-item strong { color: var(--text); font-weight: 500; }
 
   footer { margin-top: 28px; padding-top: 14px; border-top: 0.5px solid var(--border); font-size: 11px; color: var(--text-ter); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
 
@@ -147,191 +164,223 @@
     <button class="cn" onclick="fc('madrid',this)">馬德里</button>
     <button class="cn" onclick="fc('bcn',this)">巴塞隆納</button>
     <button class="cn" onclick="fc('book',this)">🎫 訂票清單</button>
+    <button class="cn" onclick="fc('tips',this)">🧳 實用須知</button>
   </div>
 
   <div class="grid" id="grid">
 
+    <!-- ===== DAY 1 ===== -->
     <div class="dr" data-city="paris">
       <div class="dl"><div class="dn">Day 1</div><div class="dd">10月27日 二</div><div class="cb" style="background:#EEEDFE;color:#3C3489">巴黎</div></div>
       <div class="dright">
         <div class="dt">抵達巴黎 CDG・鐵塔 + 香榭麗舍</div>
-        <div class="ds">CDG 入境 → RER B 線入市區（約 35 分鐘）→ 飯店 Check-in → 下午香榭麗舍大道 Champs-Élysées 漫步 → 凱旋門 Arc de Triomphe（可登頂，日落全景絕佳）→ 傍晚 Trocadéro 廣場等候艾菲爾鐵塔整點燈光秀（22:00 前每整點閃燈 5 分鐘）→ 塞納河畔晚餐</div>
-        <div class="dn2">住宿推薦：7 區（Eiffel/Invalides）或 1 區（Louvre 周邊）；艾菲爾鐵塔內部可提前購票登頂，但外觀免費欣賞已非常震撼</div>
+        <div class="ds">CDG 入境 → RER B 線入市區（約 35 分鐘，車票 €11.80，留意車門需手動按鈕開啟）→ 飯店 Check-in → 下午香榭麗舍大道 Champs-Élysées 漫步 → 凱旋門 Arc de Triomphe（可登頂，日落全景絕佳，€16）→ 傍晚 Trocadéro 廣場拍艾菲爾鐵塔（11月日落約 17:30，提早卡位）→ 塞納河畔晚餐</div>
+        <div class="dn2">住宿推薦：7 區（Eiffel/Invalides）或 1 區（Louvre 周邊）。巴黎 10 月底氣溫 8–13°C，風大，需防風外套與圍巾</div>
+        <div class="dn2 tip">💡 在地提醒：巴黎地鐵扒手猖獗，尤其 RER B 線（往返機場）和 1 號線（觀光線）。背包前背、手機不外露。避免在地鐵站內被「好心人」幫你買票操作機器</div>
       </div>
     </div>
 
+    <!-- ===== DAY 2 ===== -->
     <div class="dr" data-city="paris">
       <div class="dl"><div class="dn">Day 2</div><div class="dd">10月28日 三</div><div class="cb" style="background:#EEEDFE;color:#3C3489">巴黎</div></div>
       <div class="dright">
         <div class="dt">羅浮宮 + 奧塞美術館 + 蒙馬特</div>
-        <div class="ds">羅浮宮（早場 9:00，3 小時，必看：蒙娜麗莎、米洛的維納斯、勝利女神）→ 杜樂麗花園午餐 → 奧塞美術館（印象派，梵谷《星夜》、莫內睡蓮原作，約 2 小時）→ 傍晚蒙馬特聖心堂 Sacré-Cœur → 小丘廣場藝術村晚餐</div>
-        <div class="dn2 warn">羅浮宮須提前線上購票，現場常排 1–2 小時。羅浮宮週二閉館、奧塞週一閉館，10月28日（三）兩館均正常開放</div>
+        <div class="ds">羅浮宮（早場 9:00 入場，3 小時，必看：蒙娜麗莎、米洛的維納斯、勝利女神。進場走 Passage Richelieu 入口人少）→ 杜樂麗花園午餐 → 奧塞美術館（印象派殿堂：莫內、雷諾瓦、梵谷、竇加，約 2 小時）→ 傍晚蒙馬特聖心堂 Sacré-Cœur → 小丘廣場藝術村晚餐</div>
+        <div class="dn2 warn">羅浮宮須提前線上購票（€22），現場常排 1–2 小時。羅浮宮週二閉館、奧塞週一閉館，10月28日（三）兩館均正常開放</div>
+        <div class="dn2 tip">💡 在地提醒：蒙馬特聖心堂前廣場有人強行幫你繫幸運繩再索費，堅定拒絕、不要伸手接任何東西</div>
       </div>
     </div>
 
+    <!-- ===== DAY 3 ===== -->
     <div class="dr" data-city="paris">
       <div class="dl"><div class="dn">Day 3</div><div class="dd">10月29日 四</div><div class="cb" style="background:#EEEDFE;color:#3C3489">巴黎</div></div>
       <div class="dright">
         <div class="dt">迪士尼樂園 Disneyland Paris 全天</div>
-        <div class="ds">搭 RER A 線至 Marne-la-Vallée / Chessy 站（約 35–40 分鐘，直達迪士尼門口）→ 迪士尼樂園 Disneyland Park 全天（必玩：幽靈公館 Haunted Mansion、太空山 Space Mountain、小小世界 It's a Small World、睡美人城堡 Sleeping Beauty Castle）→ 自選加購 Walt Disney Studios Park（影視主題，另需購票）→ 傍晚商店街 Disney Village 採購伴手禮 → 晚間 RER A 線返市區</div>
-        <div class="dn2 warn">10月下旬為萬聖節特別活動期間（Halloween Season），迪士尼有南瓜裝飾與夜間遊行，氣氛極佳但人潮最多。務必提前購票並善用 Disney Premier Access 快速通關，開園前 30 分鐘抵達排隊</div>
+        <div class="ds">搭 RER A 線至 Marne-la-Vallée / Chessy 站（約 35–40 分鐘，直達迪士尼門口）→ 迪士尼樂園 Disneyland Park 全天（必玩：幽靈公館 Phantom Manor、太空山 Hyperspace Mountain、小小世界 It's a Small World、睡美人城堡 Le Château de la Belle au Bois Dormant）→ 自選加購 Walt Disney Studios Park（影視主題，另需購票）→ 傍晚商店街 Disney Village 採購伴手禮 → 晚間 RER A 線返市區</div>
+        <div class="dn2 warn">10月下旬為萬聖節特別活動期間（Halloween Season），迪士尼有南瓜裝飾與夜間遊行，氣氛極佳但人潮為全年高峰之一。務必提前購票並善用 Disney Premier Access 快速通關（單項 €8–15），開園前 30 分鐘抵達排隊</div>
+        <div class="dn2">🔄 替代方案：若不去迪士尼，可改排凡爾賽宮（RER C 線 40 分鐘，需整天）。兩者只能擇一，不可能同天完成</div>
       </div>
     </div>
 
-    <div class="tr"><div class="tl">✈️</div><div class="tright"><span class="tt">廉航｜巴黎 CDG / ORY → 里斯本 LIS（TAP、Vueling、Transavia）</span><span class="tb">約 2.5 小時</span></div></div>
+    <div class="tr" data-transit><div class="tl">✈️</div><div class="tright"><span class="tt">廉航｜巴黎 CDG / ORY → 里斯本 LIS（TAP、Vueling、Transavia）｜11月淡季可低至 €50–80</span><span class="tb">約 2.5 小時</span></div></div>
 
+    <!-- ===== DAY 4 ===== -->
     <div class="dr" data-city="lisbon">
       <div class="dl"><div class="dn">Day 4</div><div class="dd">10月30日 五</div><div class="cb" style="background:#EAF3DE;color:#27500A">里斯本</div></div>
       <div class="dright">
         <div class="dt">抵達里斯本・阿爾法馬老城</div>
-        <div class="ds">飛抵里斯本 → 地鐵入市區 → 阿爾法馬區 Alfama 迷宮巷弄 → 聖喬治城堡 Castelo de São Jorge（全城制高點）→ Portas do Sol 觀景台 → 法朵（Fado）餐廳晚餐</div>
-        <div class="dn2">住宿推薦：Baixa 市中心或 Chiado 區，景點步行可達</div>
+        <div class="ds">飛抵里斯本 → 地鐵紅線入市區（機場直達 Alameda 轉綠線，約 20 分鐘，€1.65）→ Check-in → 阿爾法馬區 Alfama 迷宮巷弄 → 聖喬治城堡 Castelo de São Jorge（全城制高點，€15）→ Portas do Sol 觀景台 → 晚間法朵（Fado）餐廳（推薦 Mesa de Frades 或 Tasca do Chico，須訂位）</div>
+        <div class="dn2">住宿推薦：Baixa 市中心或 Chiado 區，景點步行可達。里斯本 10 月底氣溫 14–20°C，比巴黎暖很多</div>
+        <div class="dn2 tip">💡 在地提醒：里斯本是山城，石板路陡滑，穿好走的平底鞋。拖行李箱在舊城區很崩潰，考慮搭 Uber（里斯本 Uber 便宜，起步 €3–5）</div>
       </div>
     </div>
 
+    <!-- ===== DAY 5 ===== -->
     <div class="dr" data-city="lisbon">
       <div class="dl"><div class="dn">Day 5</div><div class="dd">10月31日 六</div><div class="cb" style="background:#EAF3DE;color:#27500A">里斯本</div></div>
       <div class="dright">
         <div class="dt">貝倫區・葡萄牙大航海遺址</div>
-        <div class="ds">傑羅尼摩斯修道院 Jerónimos（必提前購票）→ 貝倫塔 Torre de Belém → 發現者紀念碑 → Pastéis de Belém 老店葡式蛋塔（1837 年創立）→ 下午 LX Factory 文創市集 → 28 號電車（注意扒手）</div>
-        <div class="dn2 warn">10月31日 萬聖節前夕，里斯本廣場有活動，氣氛熱鬧</div>
+        <div class="ds">傑羅尼摩斯修道院 Jerónimos（必提前購票，€10）→ 貝倫塔 Torre de Belém → 發現者紀念碑 → Pastéis de Belém 老店葡式蛋塔（1837 年創立，排隊 15–30 分鐘，但店內座位區不排隊且價格相同）→ 下午 LX Factory 文創市集 → 傍晚搭 28E 電車體驗（僅 1–2 站體驗即可，全程人擠人且扒手多）</div>
+        <div class="dn2 warn">10月31日 萬聖節前夕，里斯本商業廣場（Praça do Comércio）有活動，氣氛熱鬧</div>
+        <div class="dn2 tip">💡 在地提醒：28E 電車是扒手天堂，手機和錢包務必收進拉鏈口袋。建議搭 1–2 站體驗就好，不要全程搭。貝倫區距市中心較遠，搭 15E 電車或 Uber 前往更舒適</div>
       </div>
     </div>
 
+    <!-- ===== DAY 6 ===== -->
     <div class="dr" data-city="lisbon">
       <div class="dl"><div class="dn">Day 6</div><div class="dd">11月1日 日</div><div class="cb" style="background:#EAF3DE;color:#27500A">里斯本</div></div>
       <div class="dright">
         <div class="dt">辛特拉 Sintra 童話宮殿（近郊）</div>
-        <div class="ds">搭火車至辛特拉（Rossio 站出發，約 40 分）→ 佩納宮 Palácio da Pena（彩色山頂宮殿，必看）→ 辛特拉歷史中心 → 摩爾城堡遺跡 → 傍晚返里斯本</div>
-        <div class="dn2 warn">11月1日 公眾假日，辛特拉照常開放。建議早班火車 8:30 前出發，人潮較少</div>
+        <div class="ds">搭火車至辛特拉（Rossio 站出發，約 40 分，€2.35 單程）→ 佩納宮 Palácio da Pena（彩色山頂宮殿，必看，€14）→ 辛特拉歷史中心午餐 → 摩爾城堡遺跡（體力好可加）→ 傍晚返里斯本</div>
+        <div class="dn2 warn">11月1日 公眾假日，辛特拉照常開放但人潮比平日多。建議搭 8:00–8:30 火車，到了直奔佩納宮，避開 10:30 後的人潮高峰</div>
+        <div class="dn2 tip">💡 在地提醒：辛特拉車站到佩納宮搭 434 號巴士（€4 來回）。不要聽信門口 tuk-tuk 司機開高價。佩納宮山上風大溫度低 3–5°C，帶件外套</div>
       </div>
     </div>
 
-    <div class="tr"><div class="tl">🚄</div><div class="tright"><span class="tt">Alfa Pendular 快車｜里斯本 Oriente → 波多 Campanhã</span><span class="tb">約 3 小時</span></div></div>
+    <div class="tr" data-transit><div class="tl">🚄</div><div class="tright"><span class="tt">Alfa Pendular 快車｜里斯本 Oriente → 波多 Campanhã｜Conforto 車廂含 WiFi 與插座</span><span class="tb">約 3 小時</span></div></div>
 
+    <!-- ===== DAY 7 ===== -->
     <div class="dr" data-city="porto">
       <div class="dl"><div class="dn">Day 7</div><div class="dd">11月2日 一</div><div class="cb" style="background:#FBEAF0;color:#72243E">波多</div></div>
       <div class="dright">
         <div class="dt">波多・世界遺產河岸城</div>
-        <div class="ds">火車抵達 → Check-in → 里貝拉區 Ribeira（UNESCO 世界遺產）→ 路易一世橋 Ponte Luís I → 萊羅書店 Livraria Lello → 塔之堂 Torre dos Clérigos 登頂 → 波特酒窖品酒（Vila Nova de Gaia）</div>
-        <div class="dn2">住宿推薦：里貝拉區或 Bonfim 文創區</div>
+        <div class="ds">火車抵達 Campanhã（轉 São Bento 站 5 分鐘）→ Check-in → 里貝拉區 Ribeira（UNESCO 世界遺產）→ 路易一世橋 Ponte Luís I 上層步行（免費，全城最佳視角）→ 萊羅書店 Livraria Lello（€8 入場，可抵書款）→ 塔之堂 Torre dos Clérigos 登頂（€8，240 階）→ 黃昏過橋至 Vila Nova de Gaia 酒窖品酒（推薦 Graham's 或 Taylor's，導覽 + 品酒 €15–20）</div>
+        <div class="dn2">住宿推薦：里貝拉區或 Bolhão 市場周邊，步行可達所有景點</div>
+        <div class="dn2 tip">💡 在地提醒：波多比里斯本冷 2–3°C，河邊風大。Gaia 酒窖區黃昏時分光線最美，拍照絕佳。品酒建議選 Tawny Port（琥珀色甜酒），比 Ruby 更有層次</div>
       </div>
     </div>
 
+    <!-- ===== DAY 8 ===== -->
     <div class="dr" data-city="porto">
       <div class="dl"><div class="dn">Day 8</div><div class="dd">11月3日 二</div><div class="cb" style="background:#FBEAF0;color:#72243E">波多</div></div>
       <div class="dright">
-        <div class="dt">波多精華 + 波特酒深度</div>
-        <div class="ds">聖本篤車站 São Bento（2 萬片藍瓷磚濕壁畫）→ 波多主教座堂 Sé → 杜羅河谷船遊（選）→ Rua de Santa Catarina 購物街 → 晚餐烤鱈魚 Bacalhau</div>
-        <div class="dn2">萊羅書店週末人潮最多，建議早場 9:00 開門時入場</div>
+        <div class="dt">波多精華 + 在地美食</div>
+        <div class="ds">聖本篤車站 São Bento（2 萬片藍白瓷磚壁畫，免費入內，是火車站不是博物館）→ 波多主教座堂 Sé → Bolhão 市場（2022 重新開幕，當地人的菜市場）→ Rua de Santa Catarina 購物街 → Majestic Café（哈利波特靈感咖啡廳）→ 晚餐必吃：Francesinha（波多特色三明治，推薦 Café Santiago）</div>
+        <div class="dn2">萊羅書店早場 9:00 開門最少人，若 Day 7 沒去可今天補上。波多的 Bacalhau（鹽鱈魚）據說有 365 種做法，每天吃一種可以吃一年</div>
       </div>
     </div>
 
-    <div class="tr"><div class="tl">✈️</div><div class="tright"><span class="tt">廉航｜波多 OPO → 塞維亞 SVQ（Ryanair / Vueling 直達）</span><span class="tb">約 1.5 小時</span></div></div>
+    <div class="tr" data-transit><div class="tl">✈️</div><div class="tright"><span class="tt">廉航｜波多 OPO → 塞維亞 SVQ（Ryanair / Vueling）｜⚠️ 此航線班次不穩定，務必提早確認</span><span class="tb">約 1.5 小時</span></div></div>
 
+    <!-- ===== DAY 9 ===== -->
     <div class="dr" data-city="sevilla">
       <div class="dl"><div class="dn">Day 9</div><div class="dd">11月4日 三</div><div class="cb" style="background:#FAECE7;color:#712B13">塞維亞</div></div>
       <div class="dright">
         <div class="dt">抵達塞維亞・王宮與大教堂</div>
-        <div class="ds">抵達塞維亞 → Check-in → 塞維亞王宮 Real Alcázar（《冰與火之歌》取景地）→ 塞維亞大教堂 → 希拉達塔 Giralda 登頂 → 聖十字區 Barrio Santa Cruz 白牆小巷夜遊</div>
-        <div class="dn2 alert">王宮是全西班牙最難搶的票，出發前 3–4 週務必線上預訂</div>
+        <div class="ds">抵達塞維亞 → EA 巴士至市中心（€4，35 分鐘）→ Check-in → 塞維亞王宮 Real Alcázar（《冰與火之歌》多恩取景地，建議預約上午場，參觀 2 小時）→ 塞維亞大教堂（世界最大哥德式教堂）→ 希拉達塔 Giralda 登頂（無階梯，是斜坡，輕鬆登頂）→ 聖十字區 Barrio Santa Cruz 白牆小巷夜遊</div>
+        <div class="dn2 alert">王宮是全西班牙最難搶的票之一（€14.50），出發前 3–4 週務必線上預訂，選擇上午場次可避開下午觀光團</div>
+        <div class="dn2 tip">💡 在地提醒：歡迎來到西班牙！從今天起用餐時間大改：午餐 14:00–15:30、晚餐 21:00–22:30。中午 12 點去餐廳會發現廚房還沒開。晚上 19:00 只有觀光客餐廳營業。入境隨俗，調整生理時鐘</div>
       </div>
     </div>
 
+    <!-- ===== DAY 10 ===== -->
     <div class="dr" data-city="sevilla">
       <div class="dl"><div class="dn">Day 10</div><div class="dd">11月5日 四</div><div class="cb" style="background:#FAECE7;color:#712B13">塞維亞</div></div>
       <div class="dright">
         <div class="dt">塞維亞・西班牙廣場 + 佛朗明哥</div>
-        <div class="ds">都市陽傘 Metropol Parasol（早晨少人，頂層全景）→ 西班牙廣場 Plaza de España（1929 世博遺址，免費入場）→ 特里亞納區 Triana 陶藝市場 → 午後 Tapas 巡禮 → 晚間佛朗明哥表演（La Carboneria 免費秀或 Tablao El Arenal）</div>
-        <div class="dn2">11 月天氣涼爽約 16–22°C，是安達魯西亞最舒適的旅遊季節</div>
+        <div class="ds">都市陽傘 Metropol Parasol（Las Setas，早晨 10:00 少人，頂層全景 €5）→ 西班牙廣場 Plaza de España（1929 世博遺址，免費入場，可划船 €6/35 分鐘）→ 特里亞納區 Triana 過橋漫步（陶藝街、在地 tapas 區）→ 午後 Tapas 巡禮（推薦 El Rinconcillo，創立於 1670 年，塞維亞最老酒吧）→ 晚間佛朗明哥表演</div>
+        <div class="dn2 tip">💡 佛朗明哥推薦：付費劇場比免費酒吧品質穩定得多。推薦 Casa de la Memoria（€22，小場地近距離震撼）或 Casa del Flamenco（€20，聖十字區內）。La Carboneria 雖免費但品質參差，觀光客太多。在塞維亞看佛朗明哥是在發源地看，別省這筆錢</div>
+        <div class="dn2">11 月天氣涼爽約 16–22°C，是安達魯西亞最舒適的旅遊季節。下午 14:00–17:00 許多小店會關門（siesta），安排景點或回飯店休息</div>
       </div>
     </div>
 
-    <div class="tr"><div class="tl">🚌</div><div class="tright"><span class="tt">ALSA 巴士｜塞維亞 Plaza de Armas → 格拉納達（選早班）</span><span class="tb">約 3 小時</span></div></div>
+    <div class="tr" data-transit><div class="tl">🚌</div><div class="tright"><span class="tt">ALSA 巴士｜塞維亞 Plaza de Armas → 格拉納達（選早班 8:00–9:00，座位寬敞舒適）</span><span class="tb">約 3 小時</span></div></div>
 
+    <!-- ===== DAY 11 ===== -->
     <div class="dr" data-city="granada">
       <div class="dl"><div class="dn">Day 11</div><div class="dd">11月6日 五</div><div class="cb" style="background:#E1F5EE;color:#085041">格拉納達</div></div>
       <div class="dright">
         <div class="dt">格拉納達・阿爾拜辛與免費 Tapas</div>
-        <div class="ds">巴士抵達格拉納達 → Check-in → 阿爾拜辛 Albaicín 摩爾老城（UNESCO）→ 聖尼古拉斯廣場（日落拍阿爾罕布拉宮全景，絕美）→ 晚間點酒附免費 Tapas 體驗</div>
-        <div class="dn2">格拉納達海拔 738m，11 月夜間約 8–10°C，備厚外套</div>
+        <div class="ds">巴士抵達格拉納達 → Check-in → 阿爾拜辛 Albaicín 摩爾老城（UNESCO）→ 聖尼古拉斯廣場 Mirador de San Nicolás（日落拍阿爾罕布拉宮全景，17:30 前卡位）→ 晚間格拉納達免費 Tapas 巡禮</div>
+        <div class="dn2 tip">💡 免費 Tapas 攻略：格拉納達是全西班牙唯一「點酒送 Tapas」的城市。點一杯啤酒（caña，€2.50–3）就附一盤 tapas，換一家店再點一杯又是不同的 tapas。推薦路線：Calle Navas → Bar Los Diamantes（炸海鮮）→ Bodegas Castañeda（老牌）→ Bar Ávila。一晚喝 4–5 杯就吃飽了，總花費 €12–15</div>
+        <div class="dn2 warn">格拉納達海拔 738m，11 月夜間約 5–10°C，比塞維亞冷很多，備厚外套。阿爾拜辛區坡陡路窄，穿好走的鞋</div>
       </div>
     </div>
 
+    <!-- ===== DAY 12 ===== -->
     <div class="dr" data-city="granada">
       <div class="dl"><div class="dn">Day 12</div><div class="dd">11月7日 六</div><div class="cb" style="background:#E1F5EE;color:#085041">格拉納達</div></div>
       <div class="dright">
         <div class="dt">阿爾罕布拉宮・全西班牙最難搶門票</div>
-        <div class="ds">阿爾罕布拉宮全日（納斯里德宮 Palacios Nazaríes + 阿爾卡薩巴堡壘 + 赫內拉利費花園）→ 下午格拉納達大教堂 → 晚間搭車前往馬德里</div>
-        <div class="dn2 alert">納斯里德宮有嚴格時段限制，全日票 8:30 入場；門票須提前 2–3 個月官網搶購</div>
+        <div class="ds">阿爾罕布拉宮全日（8:30 入場 → 納斯里德宮 Palacios Nazaríes（嚴格時段入場，遲到不候）→ 阿爾卡薩巴堡壘 Alcazaba → 赫內拉利費花園 Generalife）→ 午餐下山 → 下午格拉納達大教堂 + 皇家禮拜堂 → 傍晚搭 AVE 前往馬德里（建議 17:00–18:00 班次）</div>
+        <div class="dn2 alert">納斯里德宮有嚴格時段限制，遲到 1 分鐘就不能進。門票須提前 2–3 個月官網搶購。全程參觀需 4–5 小時，8:30 入場約 13:00–14:00 結束</div>
+        <div class="dn2 warn">⏱ 這天行程偏趕：阿爾罕布拉宮（8:30–14:00）→ 大教堂（14:30–15:30）→ 高鐵站（提前 30 分鐘到）→ 17:00–18:00 班次前往馬德里。若覺得太趕，可放棄大教堂，下山後直接享用午餐再從容搭車</div>
       </div>
     </div>
 
-    <div class="tr"><div class="tl">🚄</div><div class="tright"><span class="tt">AVE 高鐵｜格拉納達 → 馬德里 Atocha（Day 12 下午車，當晚抵達）</span><span class="tb">約 3.5 小時</span></div></div>
+    <div class="tr" data-transit><div class="tl">🚄</div><div class="tright"><span class="tt">AVE 高鐵｜格拉納達 → 馬德里 Atocha（Day 12 下午班次，當晚抵達）</span><span class="tb">約 3.5 小時</span></div></div>
 
+    <!-- ===== DAY 13 ===== -->
     <div class="dr" data-city="madrid">
       <div class="dl"><div class="dn">Day 13</div><div class="dd">11月8日 日</div><div class="cb" style="background:#FAEEDA;color:#633806">馬德里</div></div>
       <div class="dright">
         <div class="dt">馬德里・皇宮與藝術三角</div>
-        <div class="ds">馬德里王宮 Palacio Real（歐洲三大皇宮，巴洛克式）→ 德波神殿 Templo de Debod → 普拉多美術館 Prado（哥雅、維拉斯奎茲原作）→ 太陽門廣場 Puerta del Sol → 主廣場 Plaza Mayor → 聖米格爾市場晚餐</div>
-        <div class="dn2">普拉多美術館 18:00–20:00 每日免費，但排隊長；建議付費早場</div>
+        <div class="ds">馬德里王宮 Palacio Real（歐洲最大皇宮之一，巴洛克式，€14）→ 德波神殿 Templo de Debod（埃及贈送的 2000 年古神殿，免費，日落必去）→ 普拉多美術館 Prado（哥雅《五月三日》、維拉斯奎茲《宮女》、波希《人間樂園》）→ 太陽門廣場 Puerta del Sol → 主廣場 Plaza Mayor → 晚餐</div>
+        <div class="dn2 tip">💡 在地提醒：聖米格爾市場（Mercado de San Miguel）已變成觀光客市場，一個 tapas €5–8，同樣的東西外面 €2–3。想吃真正的在地市場，去 Mercado de Antón Martín（Lavapiés 區）或 Mercado de la Cebada（La Latina 區），價格實惠且有真正的當地人</div>
+        <div class="dn2">普拉多美術館 18:00–20:00 每日免費入場（週日提早至 17:00–19:00），但排隊 30–60 分鐘。建議付費早場（€15）從容參觀</div>
       </div>
     </div>
 
+    <!-- ===== DAY 14 ===== -->
     <div class="dr" data-city="madrid">
       <div class="dl"><div class="dn">Day 14</div><div class="dd">11月9日 一</div><div class="cb" style="background:#FAEEDA;color:#633806">馬德里</div></div>
       <div class="dright">
         <div class="dt">蘇菲亞藝術中心 + 托雷多古城</div>
-        <div class="ds">蘇菲亞王后藝術中心（畢卡索《格爾尼卡》原作）→ 麗池公園散步 → 下午搭 Avant 至托雷多（30 分鐘）→ 中世紀古城漫步：大教堂 + 聖托梅教堂（格雷科畫作）→ 傍晚返馬德里</div>
-        <div class="dn2">週一部分托雷多博物館休館，建議下午前往古城漫步</div>
+        <div class="ds">蘇菲亞王后藝術中心 Reina Sofía（畢卡索《格爾尼卡》原作，此畫不能拍照）→ 麗池公園 Retiro 散步（水晶宮免費入內）→ 下午搭 Avant 至托雷多（30 分鐘，€13.60 來回）→ 中世紀古城漫步：大教堂 + 聖托梅教堂（格雷科《奧加茲伯爵的葬禮》）→ 城牆日落 → 傍晚返馬德里</div>
+        <div class="dn2 warn">蘇菲亞週二閉館，11月9日（一）正常開放。托雷多部分博物館週一休館，但大教堂與聖托梅教堂照常。建議 13:00–14:00 搭車，在托雷多待到日落（17:30）再返回</div>
+        <div class="dn2 tip">💡 在地提醒：托雷多是「三教之城」（基督教、伊斯蘭教、猶太教共存），從橋上拍古城全景（Mirador del Valle）是經典角度。如果時間緊，至少看大教堂 + 聖托梅 + 城牆全景三件事</div>
       </div>
     </div>
 
-    <div class="tr"><div class="tl">🚄</div><div class="tright"><span class="tt">AVE 高鐵｜馬德里 Atocha → 巴塞隆納 Sants（Day 15 早班 7:00–8:00）</span><span class="tb">約 2.5–3 小時</span></div></div>
+    <div class="tr" data-transit><div class="tl">🚄</div><div class="tright"><span class="tt">AVE 高鐵｜馬德里 Atocha → 巴塞隆納 Sants（Day 15 早班 7:00–8:00，早鳥票約 €30–50）</span><span class="tb">約 2.5–3 小時</span></div></div>
 
+    <!-- ===== DAY 15 ===== -->
     <div class="dr" data-city="bcn">
       <div class="dl"><div class="dn">Day 15</div><div class="dd">11月10日 二</div><div class="cb" style="background:#E6F1FB;color:#0C447C">巴塞隆納</div></div>
       <div class="dright">
         <div class="dt">巴塞隆納・聖家堂 + 高第精華</div>
-        <div class="ds">早班高鐵抵達 → Check-in → 聖家堂 Sagrada Família（11 月人潮少，建議午後場）→ 聖十字聖保羅醫院（隱藏版必看）→ 奎爾公園（16:00 後散客少）→ 魔幻噴泉夜景</div>
-        <div class="dn2">聖家堂預計 2026 年完工，現在可目睹最後施工階段，歷史見證</div>
+        <div class="ds">早班高鐵 10:00–10:30 抵達 Sants → 寄放行李（Sants 站有 locker，€6–8）或 Check-in → 聖家堂 Sagrada Família（建議午後 14:00 場次，光線穿過彩色玻璃最美，含塔樓 €36）→ 聖十字聖保羅醫院 Sant Pau（步行 10 分鐘，高第之外最美的現代主義建築）→ 奎爾公園 Park Güell（€10，16:00 後散客少）→ 傍晚 Bunkers del Carmel（免費秘境觀景台，360° 俯瞰全巴塞隆納，當地人的私房景點）</div>
+        <div class="dn2 tip">💡 在地提醒：聖家堂 2026 年聖母塔預計完工，可目睹 144 年建造史的關鍵時刻。選「誕生立面塔樓」登頂（Nativity Tower），比受難立面景色好。午後 14:00–15:00 入場，陽光穿過東面彩色玻璃，內部如萬花筒般夢幻</div>
       </div>
     </div>
 
+    <!-- ===== DAY 16 ===== -->
     <div class="dr" data-city="bcn">
       <div class="dl"><div class="dn">Day 16</div><div class="dd">11月11日 三</div><div class="cb" style="background:#E6F1FB;color:#0C447C">巴塞隆納</div></div>
       <div class="dright">
-        <div class="dt">巴塞隆納・蘭布拉 + 離境 BCN</div>
-        <div class="ds">米拉之家或巴特婁之家（擇一深入參觀）→ 蘭布拉大道 → 博蓋利亞市場採買伴手禮 → 哥德區散步 → 前往 El Prat 機場搭機返台</div>
-        <div class="dn2 alert">國際長途建議提前 3 小時抵達機場。市區至機場搭地鐵 L9 南線約 35–40 分鐘</div>
+        <div class="dt">巴塞隆納・高第建築 + 離境 BCN</div>
+        <div class="ds">Casa Batlló 巴特婁之家（建議選此，€35，10D 沉浸式導覽全球頂尖；Casa Milà 外觀更壯觀但內部體驗不如 Batlló）→ Passeig de Gràcia 精品大道 → 蘭布拉大道 Las Ramblas → 博蓋利亞市場（深處攤位才是好攤，入口段觀光客陷阱）→ 哥德區 Barri Gòtic 散步 → 前往 El Prat 機場</div>
+        <div class="dn2 alert">國際長途建議提前 3 小時抵達機場。市區至機場：Aerobus A1（Pl. Catalunya 出發，€7.75，35 分鐘，最推薦）或地鐵 L9 南線（€5.50，50 分鐘，需另購機場票）</div>
+        <div class="dn2 tip">💡 在地提醒：蘭布拉大道是巴塞隆納扒手最猖獗的地方，手機放外套內袋、背包前背、不在路邊看街頭表演時放鬆警覺。哥德區巷弄美但晚上部分區域偏暗，天黑前逛完</div>
       </div>
     </div>
 
   </div>
 
+  <!-- ===== BOOKING PANEL ===== -->
   <div id="book-section" style="display:none; margin-top:4px">
     <div class="book-panel">
       <div class="book-header">🎫 出發前必完成訂票清單（按緊急程度排序）</div>
       <div class="book-list">
         <div class="book-item">
           <span class="book-badge" style="background:#FAECE7;color:#712B13">2–3 個月前</span>
-          <div class="book-text"><strong>阿爾罕布拉宮（格拉納達）</strong>　全西班牙最難搶，11月7日場次需 8–9 月搶購。<br>官網：<a href="https://tickets.alhambra-patronato.es" target="_blank">tickets.alhambra-patronato.es</a></div>
+          <div class="book-text"><strong>阿爾罕布拉宮（格拉納達）</strong>　全西班牙最難搶，11月7日場次需 8–9 月搶購。每日限量 6,600 張，早上場次最快售罄。<br>官網：<a href="https://tickets.alhambra-patronato.es" target="_blank">tickets.alhambra-patronato.es</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
-          <div class="book-text"><strong>聖家堂（巴塞隆納）</strong>　含導覽票 10 月常提前售罄，建議 9 月中購票。<br>官網：<a href="https://sagradafamilia.org" target="_blank">sagradafamilia.org</a></div>
+          <div class="book-text"><strong>聖家堂（巴塞隆納）</strong>　含塔樓導覽票最搶手，建議 9 月中購票。選「誕生立面塔樓 + 午後場次」最佳體驗。<br>官網：<a href="https://sagradafamilia.org" target="_blank">sagradafamilia.org</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
-          <div class="book-text"><strong>塞維亞王宮 Real Alcázar</strong>　指定時段票，旺季 3–4 週前售罄。<br>官網：<a href="https://www.alcazarsevilla.org" target="_blank">alcazarsevilla.org</a></div>
+          <div class="book-text"><strong>塞維亞王宮 Real Alcázar</strong>　指定時段票，選上午場避開觀光團。<br>官網：<a href="https://www.alcazarsevilla.org" target="_blank">alcazarsevilla.org</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
-          <div class="book-text"><strong>迪士尼樂園 Disneyland Paris（10月29日）</strong>　萬聖節旺季人潮最多，建議提前購票並加購 Premier Access 快速通關。雙園票（含 Walt Disney Studios）另購。<br>官網：<a href="https://www.disneylandparis.com" target="_blank">disneylandparis.com</a></div>
+          <div class="book-text"><strong>迪士尼樂園 Disneyland Paris（10月29日）</strong>　萬聖節旺季，建議提前購票並加購 Premier Access 快速通關。<br>🔄 替代方案：不去迪士尼可改排凡爾賽宮（需整天）<br>官網：<a href="https://www.disneylandparis.com" target="_blank">disneylandparis.com</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
-          <div class="book-text"><strong>高鐵票 AVE（西班牙境內）</strong>　Granada→Madrid、Madrid→Barcelona，早鳥票省 30–50%。建議用 KLOOK 或 Trainline 購票</div>
+          <div class="book-text"><strong>高鐵票 AVE（西班牙境內）</strong>　Granada→Madrid、Madrid→Barcelona，早鳥票省 30–50%。<br>⚠️ Renfe 官網對外國信用卡常刷卡失敗，建議用 <a href="https://www.thetrainline.com" target="_blank">Trainline</a> 或 <a href="https://www.omio.com" target="_blank">Omio</a> 購票更穩定</div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#E1F5EE;color:#085041">1 個月前</span>
@@ -339,7 +388,7 @@
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#E1F5EE;color:#085041">1 個月前</span>
-          <div class="book-text"><strong>波多 → 塞維亞廉航</strong>　Ryanair 直飛（需確認航線）；備案：波多→馬德里 + AVE→塞維亞</div>
+          <div class="book-text"><strong>波多 → 塞維亞廉航</strong>　Ryanair / Vueling（需確認直飛航班，此航線班次不穩定）<br>⚠️ 備案路線：波多 → 馬德里（Ryanair 班次多）+ AVE 馬德里→塞維亞（2.5 小時），雖繞路但班次穩定</div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#EAF3DE;color:#27500A">2–3 週前</span>
@@ -347,12 +396,82 @@
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#EAF3DE;color:#27500A">2–3 週前</span>
-          <div class="book-text"><strong>羅浮宮、凡爾賽宮（巴黎）</strong>　羅浮宮週二閉館，奧塞週一閉館，注意行程日期。</div>
+          <div class="book-text"><strong>羅浮宮（巴黎）</strong>　€22，週二閉館，注意行程日期。<br>官網：<a href="https://www.louvre.fr" target="_blank">louvre.fr</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#E6F1FB;color:#0C447C">彈性安排</span>
-          <div class="book-text"><strong>里斯本 → 波多 Alfa Pendular</strong>　葡鐵 <a href="https://www.cp.pt" target="_blank">cp.pt</a>，班次多，抵達前 1–2 週購票亦可</div>
+          <div class="book-text"><strong>里斯本 → 波多 Alfa Pendular</strong>　葡鐵 <a href="https://www.cp.pt" target="_blank">cp.pt</a>，班次多，抵達前 1–2 週購票亦可。Conforto 車廂（一等）含 WiFi 與插座，差價約 €5 值得升級</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PRACTICAL TIPS PANEL ===== -->
+  <div id="tips-section" style="display:none; margin-top:4px">
+    <div class="tips-panel">
+      <div class="tips-header">🧳 第一次歐洲自由行實用須知</div>
+
+      <div class="tips-section">
+        <div class="tips-section-title">🍽 用餐時間（最重要！）</div>
+        <div class="tips-item"><strong>法國</strong>：午餐 12:00–14:00、晚餐 19:30–21:30，與亞洲習慣差異不大</div>
+        <div class="tips-item"><strong>葡萄牙</strong>：午餐 12:30–14:30、晚餐 19:30–21:30，比西班牙早，較好適應</div>
+        <div class="tips-item"><strong>西班牙</strong>：午餐 <strong>14:00–15:30</strong>、晚餐 <strong>21:00–22:30</strong>。這不是誇張，這是真實的。中午 12 點餐廳廚房還沒開，晚上 19:00 只有觀光客餐廳營業</div>
+        <div class="tips-item"><strong>Siesta 文化</strong>：安達魯西亞（塞維亞、格拉納達）14:00–17:00 許多小店關門。善用這段時間逛景點或回飯店休息，不要安排逛街購物</div>
+      </div>
+
+      <div class="tips-section">
+        <div class="tips-section-title">💳 金錢與付款</div>
+        <div class="tips-item">三國都用歐元 €，不需換三種貨幣</div>
+        <div class="tips-item">西班牙與葡萄牙幾乎全面接受信用卡/Apple Pay，連路邊小攤都能刷卡</div>
+        <div class="tips-item">例外：格拉納達老城區部分小 tapas 吧只收現金，建議隨身帶 €50–80 現金備用</div>
+        <div class="tips-item">巴黎部分小咖啡廳與麵包店有 €10 最低刷卡金額</div>
+        <div class="tips-item">小費文化：法國帳單已含服務費；西葡不需小費，滿意可留 €1–2 零頭或湊整數</div>
+        <div class="tips-item">ATM 提款時選「不接受轉換」（decline conversion），讓台灣銀行按匯率計算，匯率較好</div>
+      </div>
+
+      <div class="tips-section">
+        <div class="tips-section-title">📱 上網與通訊</div>
+        <div class="tips-item"><strong>eSIM 最方便</strong>：出發前購買歐洲 eSIM（推薦 Airalo 或 Holafly），到了自動啟用，不需換卡。16 天建議 10GB 以上方案</div>
+        <div class="tips-item">備案：到巴黎機場後買 Orange 或 SFR 預付卡（約 €20–30/30 天），涵蓋全歐盟</div>
+        <div class="tips-item">歐盟境內無漫遊費——在法國買的 SIM 卡，到西班牙、葡萄牙一樣能用，不額外收費</div>
+      </div>
+
+      <div class="tips-section">
+        <div class="tips-section-title">🎒 打包建議（11月溫差大）</div>
+        <div class="tips-item"><strong>巴黎</strong>（10月底）：8–13°C，風大常下雨 → 防風防水外套、圍巾、薄羽絨</div>
+        <div class="tips-item"><strong>里斯本/波多</strong>：14–20°C → 薄外套、長袖即可，偶陣雨帶摺疊傘</div>
+        <div class="tips-item"><strong>安達魯西亞</strong>（塞維亞/格拉納達）：白天 18–22°C 舒適、夜間 5–12°C 冷 → 洋蔥式穿搭最重要</div>
+        <div class="tips-item"><strong>鞋子</strong>：歐洲古城石板路多且陡（里斯本、格拉納達、波多），務必穿好走的平底鞋或旅行運動鞋，不要穿新鞋</div>
+        <div class="tips-item"><strong>行李</strong>：廉航託運行李需另購（Ryanair 20kg 約 €20–30），建議一個登機箱 + 一個後背包，能不託運就不託運</div>
+      </div>
+
+      <div class="tips-section">
+        <div class="tips-section-title">🛡 安全與防盜</div>
+        <div class="tips-item"><strong>扒手高風險區</strong>：巴黎地鐵（尤其 1 號線、RER B/C 線）、巴塞隆納蘭布拉大道與地鐵、里斯本 28E 電車</div>
+        <div class="tips-item">手機是第一目標——不要邊走邊滑手機，拍照後立刻收好</div>
+        <div class="tips-item">背包前背、斜背包拉鏈朝身體、護照放飯店保險箱（帶影本出門即可）</div>
+        <div class="tips-item">巴黎常見騙術：簽名請願（一簽名就被包圍索錢）、幸運繩綁手、假撿戒指、好心幫你買票</div>
+        <div class="tips-item">西班牙、葡萄牙治安比法國好很多，但觀光區仍需注意隨身物品</div>
+        <div class="tips-item"><strong>歐盟緊急電話：112</strong>（全歐通用，警察、救護、消防）</div>
+      </div>
+
+      <div class="tips-section">
+        <div class="tips-section-title">🚇 交通卡省錢術</div>
+        <div class="tips-item"><strong>巴黎</strong>：買 Navigo Easy 卡（€2）+ 儲值 t+ 票（€2.15/次）或 10 次票包（€17.35）。機場到市區 RER B 線另購 €11.80</div>
+        <div class="tips-item"><strong>里斯本</strong>：買 Viva Viagem 卡（€0.50）+ 儲值 zapping（電子錢包模式，每次搭乘 €1.65，比單次票便宜一半）</div>
+        <div class="tips-item"><strong>馬德里</strong>：買 Multi 卡（€2.50）+ 儲值 10 次票（€12.20），機場附加 €3</div>
+        <div class="tips-item"><strong>巴塞隆納</strong>：T-Casual（€11.35/10 次），可搭地鐵、巴士、電車。機場 Aerobus 另計</div>
+        <div class="tips-item"><strong>Uber/Bolt</strong>：里斯本和波多的 Uber 非常便宜（市區內 €3–6），適合行李多或深夜移動</div>
+      </div>
+
+      <div class="tips-section">
+        <div class="tips-section-title">💡 其他實用小知識</div>
+        <div class="tips-item">歐洲插座為雙圓孔（Type C/F），台灣扁頭插頭需帶轉接頭，建議帶 2 個以上</div>
+        <div class="tips-item">自來水：法國、西班牙、葡萄牙自來水皆可直接飲用（餐廳點 agua del grifo 即免費自來水）</div>
+        <div class="tips-item">廁所：歐洲公廁少且多數收費（€0.50–1），進餐廳或咖啡廳時順便使用。麥當勞的廁所通常需要密碼（印在收據上）</div>
+        <div class="tips-item">旅遊保險：強烈建議購買含醫療的旅遊險，歐洲醫療費用高昂。申根區無強制要求台灣護照保險，但出事沒保險代價極大</div>
+        <div class="tips-item">Google Maps 離線地圖：出發前下載法國、葡萄牙、西班牙的離線地圖，斷網時也能導航</div>
+        <div class="tips-item">西班牙文萬用句：Hola（你好）、Gracias（謝謝）、La cuenta, por favor（請結帳）、Una caña, por favor（一杯生啤）</div>
       </div>
     </div>
   </div>
@@ -365,19 +484,28 @@
 </div>
 <script>
 function fc(city, btn) {
-  document.querySelectorAll('.cn').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.cn').forEach(function(b) { b.classList.remove('on'); });
   btn.classList.add('on');
   var book = document.getElementById('book-section');
+  var tips = document.getElementById('tips-section');
   if (city === 'book') {
-    document.querySelectorAll('.dr, .tr').forEach(r => r.style.display = 'none');
+    document.querySelectorAll('.dr, .tr').forEach(function(r) { r.style.display = 'none'; });
     book.style.display = 'block';
+    tips.style.display = 'none';
+    return;
+  }
+  if (city === 'tips') {
+    document.querySelectorAll('.dr, .tr').forEach(function(r) { r.style.display = 'none'; });
+    book.style.display = 'none';
+    tips.style.display = 'block';
     return;
   }
   book.style.display = 'none';
-  document.querySelectorAll('.dr').forEach(r => {
+  tips.style.display = 'none';
+  document.querySelectorAll('.dr').forEach(function(r) {
     r.style.display = (city === 'all' || r.dataset.city === city) ? 'flex' : 'none';
   });
-  document.querySelectorAll('.tr').forEach(r => {
+  document.querySelectorAll('.tr').forEach(function(r) {
     r.style.display = city === 'all' ? 'flex' : 'none';
   });
 }
