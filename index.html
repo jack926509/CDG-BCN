@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10月27日–11月11日 巴黎→里斯本→巴塞隆納 16天行程</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap');
+
+  :root {
+    --bg:        #faf9f7;
+    --surface:   #ffffff;
+    --surface2:  #f2f1ee;
+    --border:    rgba(0,0,0,0.08);
+    --border-md: rgba(0,0,0,0.14);
+    --border-hi: rgba(0,0,0,0.22);
+    --text:      #1a1a1a;
+    --text-sec:  #5a5a5a;
+    --text-ter:  #9a9a9a;
+    --link:      #185FA5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:        #111110;
+      --surface:   #1c1c1a;
+      --surface2:  #252523;
+      --border:    rgba(255,255,255,0.08);
+      --border-md: rgba(255,255,255,0.14);
+      --border-hi: rgba(255,255,255,0.22);
+      --text:      #eeecea;
+      --text-sec:  #a8a6a0;
+      --text-ter:  #666460;
+      --link:      #85B7EB;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; padding: 32px 16px 64px;
+  }
+  a { color: var(--link); }
+  .container { max-width: 740px; margin: 0 auto; }
+
+  header { margin-bottom: 24px; }
+  .header-title { font-size: 22px; font-weight: 500; margin-bottom: 5px; }
+  .header-sub   { font-size: 13px; color: var(--text-sec); }
+
+  .meta-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 18px; }
+  .mc { background: var(--surface); border: 0.5px solid var(--border-md); border-radius: 10px; padding: 10px 12px; }
+  .ml { font-size: 11px; color: var(--text-ter); margin-bottom: 2px; }
+  .mv { font-size: 13px; font-weight: 500; }
+
+  .holiday-banner { background: #faeeda; color: #633806; border-radius: 8px; padding: 9px 13px; font-size: 12px; margin-bottom: 16px; line-height: 1.65; }
+  @media (prefers-color-scheme: dark) { .holiday-banner { background: #2e2210; color: #f0c070; } }
+
+  .legend { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; background: var(--surface); border: 0.5px solid var(--border); border-radius: 10px; padding: 10px 14px; }
+  .li  { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-sec); }
+  .ld  { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+  .cnav-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+  .cn { padding: 5px 12px; border-radius: 16px; border: 1px solid var(--border-md); background: transparent; color: var(--text-sec); cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; transition: all .15s; }
+  .cn:hover { color: var(--text); border-color: var(--border-hi); }
+  .cn.on    { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+  .grid { display: flex; flex-direction: column; border: 0.5px solid var(--border-md); border-radius: 14px; overflow: hidden; }
+
+  .dr { display: flex; border-bottom: 0.5px solid var(--border); background: var(--surface); transition: background .1s; }
+  .dr:last-child { border-bottom: none; }
+  .dr:hover { background: var(--surface2); }
+
+  .dl { width: 96px; flex-shrink: 0; padding: 14px 12px 14px 0; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; border-right: 1.5px solid var(--border-md); }
+  .dn { font-size: 12px; font-weight: 500; }
+  .dd { font-size: 10px; color: var(--text-ter); }
+  .cb { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 9px; white-space: nowrap; margin-top: 2px; }
+
+  .dright { flex: 1; padding: 13px 14px; }
+  .dt { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+  .ds { font-size: 12px; color: var(--text-sec); line-height: 1.75; }
+  .dn2 { font-size: 11px; color: var(--text-ter); margin-top: 6px; padding: 3px 9px; background: var(--surface2); border-radius: 6px; display: inline-block; line-height: 1.65; }
+  .dn2.warn  { background: #faeeda; color: #633806; }
+  .dn2.alert { background: #faece7; color: #712b13; }
+  @media (prefers-color-scheme: dark) {
+    .dn2.warn  { background: #2e2210; color: #f0c070; }
+    .dn2.alert { background: #2e1410; color: #f09070; }
+  }
+
+  .tr { display: flex; background: var(--surface2); border-bottom: 0.5px solid var(--border); }
+  .tl { width: 96px; flex-shrink: 0; padding: 8px 12px 8px 0; display: flex; align-items: center; justify-content: flex-end; font-size: 15px; border-right: 1.5px solid var(--border-md); }
+  .tright { flex: 1; padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .tt { font-size: 12px; color: var(--text-sec); flex: 1; line-height: 1.5; }
+  .tb { font-size: 11px; color: var(--text-sec); background: var(--surface); border: 0.5px solid var(--border-md); border-radius: 8px; padding: 2px 8px; white-space: nowrap; flex-shrink: 0; }
+
+  .book-panel { border: 0.5px solid var(--border-md); border-radius: 14px; overflow: hidden; background: var(--surface); }
+  .book-header { padding: 11px 15px; background: var(--surface2); font-size: 13px; font-weight: 500; border-bottom: 0.5px solid var(--border); }
+  .book-list { padding: 14px 15px; display: flex; flex-direction: column; gap: 12px; }
+  .book-item { display: flex; gap: 10px; align-items: flex-start; }
+  .book-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 8px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .book-text { font-size: 12px; color: var(--text-sec); line-height: 1.65; }
+  .book-text strong { color: var(--text); font-weight: 500; }
+
+  footer { margin-top: 28px; padding-top: 14px; border-top: 0.5px solid var(--border); font-size: 11px; color: var(--text-ter); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+
+  @media (max-width: 500px) {
+    .meta-bar { grid-template-columns: 1fr 1fr; }
+    .dl, .tl  { width: 80px; }
+    .header-title { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="header-title">10月27日–11月11日 巴黎 → 里斯本 → 巴塞隆納</div>
+    <div class="header-sub">2026 年 10月27日–11月11日・CDG 入境・BCN 出境・16 天 15 夜</div>
+  </header>
+
+  <div class="meta-bar">
+    <div class="mc"><div class="ml">出發日</div><div class="mv">10月27日 週二</div></div>
+    <div class="mc"><div class="ml">返台日</div><div class="mv">11月11日 週三</div></div>
+    <div class="mc"><div class="ml">總天數</div><div class="mv">16 天 15 夜</div></div>
+    <div class="mc"><div class="ml">路線</div><div class="mv">CDG → BCN</div></div>
+  </div>
+
+  <div class="holiday-banner">
+    ⚠️ <strong>11月1日 萬聖節假日提醒</strong>：11月1日 為西班牙、葡萄牙法定假日（Todos los Santos），主要景點照常開放，但部分商店休息。辛特拉宮殿照常開放，人潮較多，建議早班出發。
+  </div>
+
+  <div class="legend">
+    <div class="li"><div class="ld" style="background:#534AB7"></div>巴黎</div>
+    <div class="li"><div class="ld" style="background:#3B6D11"></div>里斯本</div>
+    <div class="li"><div class="ld" style="background:#993556"></div>波多</div>
+    <div class="li"><div class="ld" style="background:#993C1D"></div>塞維亞</div>
+    <div class="li"><div class="ld" style="background:#0F6E56"></div>格拉納達</div>
+    <div class="li"><div class="ld" style="background:#854F0B"></div>馬德里</div>
+    <div class="li"><div class="ld" style="background:#185FA5"></div>巴塞隆納</div>
+  </div>
+
+  <div class="cnav-row">
+    <button class="cn on" onclick="fc('all',this)">全部</button>
+    <button class="cn" onclick="fc('paris',this)">巴黎</button>
+    <button class="cn" onclick="fc('lisbon',this)">里斯本</button>
+    <button class="cn" onclick="fc('porto',this)">波多</button>
+    <button class="cn" onclick="fc('sevilla',this)">塞維亞</button>
+    <button class="cn" onclick="fc('granada',this)">格拉納達</button>
+    <button class="cn" onclick="fc('madrid',this)">馬德里</button>
+    <button class="cn" onclick="fc('bcn',this)">巴塞隆納</button>
+    <button class="cn" onclick="fc('book',this)">🎫 訂票清單</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <div class="dr" data-city="paris">
+      <div class="dl"><div class="dn">Day 1</div><div class="dd">10月27日 二</div><div class="cb" style="background:#EEEDFE;color:#3C3489">巴黎</div></div>
+      <div class="dright">
+        <div class="dt">抵達巴黎 CDG・入城</div>
+        <div class="ds">CDG 機場入境 → RER B 線入市區（約 35 分鐘）→ 飯店 Check-in → 艾菲爾鐵塔夜景（Trocadéro 廣場觀賞）→ 塞納河畔晚餐</div>
+        <div class="dn2">住宿推薦：7 區（Eiffel/Invalides）或 1 區（Louvre 周邊），地鐵線密集</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="paris">
+      <div class="dl"><div class="dn">Day 2</div><div class="dd">10月28日 三</div><div class="cb" style="background:#EEEDFE;color:#3C3489">巴黎</div></div>
+      <div class="dright">
+        <div class="dt">羅浮宮 + 奧塞美術館</div>
+        <div class="ds">羅浮宮（早場 9:00，建議 3 小時，必看：蒙娜麗莎、維納斯、勝利女神）→ 杜樂麗花園午餐 → 奧塞美術館（印象派，梵谷、莫內原作）→ 聖日耳曼德佩 Café de Flore 下午茶</div>
+        <div class="dn2 warn">羅浮宮須提前線上購票，現場常排 1–2 小時。羅浮宮週二閉館，奧塞週一閉館</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="paris">
+      <div class="dl"><div class="dn">Day 3</div><div class="dd">10月29日 四</div><div class="cb" style="background:#EEEDFE;color:#3C3489">巴黎</div></div>
+      <div class="dright">
+        <div class="dt">凡爾賽宮（近郊）+ 蒙馬特</div>
+        <div class="ds">早出發 → 凡爾賽宮（RER C 線約 40 分，鏡廳 + 凡爾賽花園）→ 返巴黎 → 蒙馬特聖心堂 Sacré-Cœur → 小丘廣場藝術村 → 晚餐 Montmartre 小館</div>
+        <div class="dn2">凡爾賽花園免費，宮內需購票（建議 Klook 早鳥票）</div>
+      </div>
+    </div>
+
+    <div class="tr"><div class="tl">✈️</div><div class="tright"><span class="tt">廉航｜巴黎 CDG / ORY → 里斯本 LIS（TAP、Vueling、Transavia）</span><span class="tb">約 2.5 小時</span></div></div>
+
+    <div class="dr" data-city="lisbon">
+      <div class="dl"><div class="dn">Day 4</div><div class="dd">10月30日 五</div><div class="cb" style="background:#EAF3DE;color:#27500A">里斯本</div></div>
+      <div class="dright">
+        <div class="dt">抵達里斯本・阿爾法馬老城</div>
+        <div class="ds">飛抵里斯本 → 地鐵入市區 → 阿爾法馬區 Alfama 迷宮巷弄 → 聖喬治城堡 Castelo de São Jorge（全城制高點）→ Portas do Sol 觀景台 → 法朵（Fado）餐廳晚餐</div>
+        <div class="dn2">住宿推薦：Baixa 市中心或 Chiado 區，景點步行可達</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="lisbon">
+      <div class="dl"><div class="dn">Day 5</div><div class="dd">10月31日 六</div><div class="cb" style="background:#EAF3DE;color:#27500A">里斯本</div></div>
+      <div class="dright">
+        <div class="dt">貝倫區・葡萄牙大航海遺址</div>
+        <div class="ds">傑羅尼摩斯修道院 Jerónimos（必提前購票）→ 貝倫塔 Torre de Belém → 發現者紀念碑 → Pastéis de Belém 老店葡式蛋塔（1837 年創立）→ 下午 LX Factory 文創市集 → 28 號電車（注意扒手）</div>
+        <div class="dn2 warn">10月31日 萬聖節前夕，里斯本廣場有活動，氣氛熱鬧</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="lisbon">
+      <div class="dl"><div class="dn">Day 6</div><div class="dd">11月1日 日</div><div class="cb" style="background:#EAF3DE;color:#27500A">里斯本</div></div>
+      <div class="dright">
+        <div class="dt">辛特拉 Sintra 童話宮殿（近郊）</div>
+        <div class="ds">搭火車至辛特拉（Rossio 站出發，約 40 分）→ 佩納宮 Palácio da Pena（彩色山頂宮殿，必看）→ 辛特拉歷史中心 → 摩爾城堡遺跡 → 傍晚返里斯本</div>
+        <div class="dn2 warn">11月1日 公眾假日，辛特拉照常開放。建議早班火車 8:30 前出發，人潮較少</div>
+      </div>
+    </div>
+
+    <div class="tr"><div class="tl">🚄</div><div class="tright"><span class="tt">Alfa Pendular 快車｜里斯本 Oriente → 波多 Campanhã</span><span class="tb">約 3 小時</span></div></div>
+
+    <div class="dr" data-city="porto">
+      <div class="dl"><div class="dn">Day 7</div><div class="dd">11月2日 一</div><div class="cb" style="background:#FBEAF0;color:#72243E">波多</div></div>
+      <div class="dright">
+        <div class="dt">波多・世界遺產河岸城</div>
+        <div class="ds">火車抵達 → Check-in → 里貝拉區 Ribeira（UNESCO 世界遺產）→ 路易一世橋 Ponte Luís I → 萊羅書店 Livraria Lello → 塔之堂 Torre dos Clérigos 登頂 → 波特酒窖品酒（Vila Nova de Gaia）</div>
+        <div class="dn2">住宿推薦：里貝拉區或 Bonfim 文創區</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="porto">
+      <div class="dl"><div class="dn">Day 8</div><div class="dd">11月3日 二</div><div class="cb" style="background:#FBEAF0;color:#72243E">波多</div></div>
+      <div class="dright">
+        <div class="dt">波多精華 + 波特酒深度</div>
+        <div class="ds">聖本篤車站 São Bento（2 萬片藍瓷磚濕壁畫）→ 波多主教座堂 Sé → 杜羅河谷船遊（選）→ Rua de Santa Catarina 購物街 → 晚餐烤鱈魚 Bacalhau</div>
+        <div class="dn2">萊羅書店週末人潮最多，建議早場 9:00 開門時入場</div>
+      </div>
+    </div>
+
+    <div class="tr"><div class="tl">✈️</div><div class="tright"><span class="tt">廉航｜波多 OPO → 塞維亞 SVQ（Ryanair / Vueling 直達）</span><span class="tb">約 1.5 小時</span></div></div>
+
+    <div class="dr" data-city="sevilla">
+      <div class="dl"><div class="dn">Day 9</div><div class="dd">11月4日 三</div><div class="cb" style="background:#FAECE7;color:#712B13">塞維亞</div></div>
+      <div class="dright">
+        <div class="dt">抵達塞維亞・王宮與大教堂</div>
+        <div class="ds">抵達塞維亞 → Check-in → 塞維亞王宮 Real Alcázar（《冰與火之歌》取景地）→ 塞維亞大教堂 → 希拉達塔 Giralda 登頂 → 聖十字區 Barrio Santa Cruz 白牆小巷夜遊</div>
+        <div class="dn2 alert">王宮是全西班牙最難搶的票，出發前 3–4 週務必線上預訂</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="sevilla">
+      <div class="dl"><div class="dn">Day 10</div><div class="dd">11月5日 四</div><div class="cb" style="background:#FAECE7;color:#712B13">塞維亞</div></div>
+      <div class="dright">
+        <div class="dt">塞維亞・西班牙廣場 + 佛朗明哥</div>
+        <div class="ds">都市陽傘 Metropol Parasol（早晨少人，頂層全景）→ 西班牙廣場 Plaza de España（1929 世博遺址，免費入場）→ 特里亞納區 Triana 陶藝市場 → 午後 Tapas 巡禮 → 晚間佛朗明哥表演（La Carboneria 免費秀或 Tablao El Arenal）</div>
+        <div class="dn2">11 月天氣涼爽約 16–22°C，是安達魯西亞最舒適的旅遊季節</div>
+      </div>
+    </div>
+
+    <div class="tr"><div class="tl">🚌</div><div class="tright"><span class="tt">ALSA 巴士｜塞維亞 Plaza de Armas → 格拉納達（選早班）</span><span class="tb">約 3 小時</span></div></div>
+
+    <div class="dr" data-city="granada">
+      <div class="dl"><div class="dn">Day 11</div><div class="dd">11月6日 五</div><div class="cb" style="background:#E1F5EE;color:#085041">格拉納達</div></div>
+      <div class="dright">
+        <div class="dt">格拉納達・阿爾拜辛與免費 Tapas</div>
+        <div class="ds">巴士抵達格拉納達 → Check-in → 阿爾拜辛 Albaicín 摩爾老城（UNESCO）→ 聖尼古拉斯廣場（日落拍阿爾罕布拉宮全景，絕美）→ 晚間點酒附免費 Tapas 體驗</div>
+        <div class="dn2">格拉納達海拔 738m，11 月夜間約 8–10°C，備厚外套</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="granada">
+      <div class="dl"><div class="dn">Day 12</div><div class="dd">11月7日 六</div><div class="cb" style="background:#E1F5EE;color:#085041">格拉納達</div></div>
+      <div class="dright">
+        <div class="dt">阿爾罕布拉宮・全西班牙最難搶門票</div>
+        <div class="ds">阿爾罕布拉宮全日（納斯里德宮 Palacios Nazaríes + 阿爾卡薩巴堡壘 + 赫內拉利費花園）→ 下午格拉納達大教堂 → 晚間搭車前往馬德里</div>
+        <div class="dn2 alert">納斯里德宮有嚴格時段限制，全日票 8:30 入場；門票須提前 2–3 個月官網搶購</div>
+      </div>
+    </div>
+
+    <div class="tr"><div class="tl">🚄</div><div class="tright"><span class="tt">AVE 高鐵｜格拉納達 → 馬德里 Atocha（Day 12 下午車，當晚抵達）</span><span class="tb">約 3.5 小時</span></div></div>
+
+    <div class="dr" data-city="madrid">
+      <div class="dl"><div class="dn">Day 13</div><div class="dd">11月8日 日</div><div class="cb" style="background:#FAEEDA;color:#633806">馬德里</div></div>
+      <div class="dright">
+        <div class="dt">馬德里・皇宮與藝術三角</div>
+        <div class="ds">馬德里王宮 Palacio Real（歐洲三大皇宮，巴洛克式）→ 德波神殿 Templo de Debod → 普拉多美術館 Prado（哥雅、維拉斯奎茲原作）→ 太陽門廣場 Puerta del Sol → 主廣場 Plaza Mayor → 聖米格爾市場晚餐</div>
+        <div class="dn2">普拉多美術館 18:00–20:00 每日免費，但排隊長；建議付費早場</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="madrid">
+      <div class="dl"><div class="dn">Day 14</div><div class="dd">11月9日 一</div><div class="cb" style="background:#FAEEDA;color:#633806">馬德里</div></div>
+      <div class="dright">
+        <div class="dt">蘇菲亞藝術中心 + 托雷多古城</div>
+        <div class="ds">蘇菲亞王后藝術中心（畢卡索《格爾尼卡》原作）→ 麗池公園散步 → 下午搭 Avant 至托雷多（30 分鐘）→ 中世紀古城漫步：大教堂 + 聖托梅教堂（格雷科畫作）→ 傍晚返馬德里</div>
+        <div class="dn2">週一部分托雷多博物館休館，建議下午前往古城漫步</div>
+      </div>
+    </div>
+
+    <div class="tr"><div class="tl">🚄</div><div class="tright"><span class="tt">AVE 高鐵｜馬德里 Atocha → 巴塞隆納 Sants（Day 15 早班 7:00–8:00）</span><span class="tb">約 2.5–3 小時</span></div></div>
+
+    <div class="dr" data-city="bcn">
+      <div class="dl"><div class="dn">Day 15</div><div class="dd">11月10日 二</div><div class="cb" style="background:#E6F1FB;color:#0C447C">巴塞隆納</div></div>
+      <div class="dright">
+        <div class="dt">巴塞隆納・聖家堂 + 高第精華</div>
+        <div class="ds">早班高鐵抵達 → Check-in → 聖家堂 Sagrada Família（11 月人潮少，建議午後場）→ 聖十字聖保羅醫院（隱藏版必看）→ 奎爾公園（16:00 後散客少）→ 魔幻噴泉夜景</div>
+        <div class="dn2">聖家堂預計 2026 年完工，現在可目睹最後施工階段，歷史見證</div>
+      </div>
+    </div>
+
+    <div class="dr" data-city="bcn">
+      <div class="dl"><div class="dn">Day 16</div><div class="dd">11月11日 三</div><div class="cb" style="background:#E6F1FB;color:#0C447C">巴塞隆納</div></div>
+      <div class="dright">
+        <div class="dt">巴塞隆納・蘭布拉 + 離境 BCN</div>
+        <div class="ds">米拉之家或巴特婁之家（擇一深入參觀）→ 蘭布拉大道 → 博蓋利亞市場採買伴手禮 → 哥德區散步 → 前往 El Prat 機場搭機返台</div>
+        <div class="dn2 alert">國際長途建議提前 3 小時抵達機場。市區至機場搭地鐵 L9 南線約 35–40 分鐘</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="book-section" style="display:none; margin-top:4px">
+    <div class="book-panel">
+      <div class="book-header">🎫 出發前必完成訂票清單（按緊急程度排序）</div>
+      <div class="book-list">
+        <div class="book-item">
+          <span class="book-badge" style="background:#FAECE7;color:#712B13">2–3 個月前</span>
+          <div class="book-text"><strong>阿爾罕布拉宮（格拉納達）</strong>　全西班牙最難搶，11月7日場次需 8–9 月搶購。<br>官網：<a href="https://tickets.alhambra-patronato.es" target="_blank">tickets.alhambra-patronato.es</a></div>
+        </div>
+        <div class="book-item">
+          <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
+          <div class="book-text"><strong>聖家堂（巴塞隆納）</strong>　含導覽票 10 月常提前售罄，建議 9 月中購票。<br>官網：<a href="https://sagradafamilia.org" target="_blank">sagradafamilia.org</a></div>
+        </div>
+        <div class="book-item">
+          <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
+          <div class="book-text"><strong>塞維亞王宮 Real Alcázar</strong>　指定時段票，旺季 3–4 週前售罄。<br>官網：<a href="https://www.alcazarsevilla.org" target="_blank">alcazarsevilla.org</a></div>
+        </div>
+        <div class="book-item">
+          <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
+          <div class="book-text"><strong>高鐵票 AVE（西班牙境內）</strong>　Granada→Madrid、Madrid→Barcelona，早鳥票省 30–50%。建議用 KLOOK 或 Trainline 購票</div>
+        </div>
+        <div class="book-item">
+          <span class="book-badge" style="background:#E1F5EE;color:#085041">1 個月前</span>
+          <div class="book-text"><strong>巴黎 → 里斯本廉航</strong>　TAP Portugal、Vueling、Transavia，11 月淡季可低至 €50–80</div>
+        </div>
+        <div class="book-item">
+          <span class="book-badge" style="background:#E1F5EE;color:#085041">1 個月前</span>
+          <div class="book-text"><strong>波多 → 塞維亞廉航</strong>　Ryanair 直飛（需確認航線）；備案：波多→馬德里 + AVE→塞維亞</div>
+        </div>
+        <div class="book-item">
+          <span class="book-badge" style="background:#EAF3DE;color:#27500A">2–3 週前</span>
+          <div class="book-text"><strong>傑羅尼摩斯修道院（里斯本）</strong>　現場排隊長達 1–2 小時，強烈建議線上購票。<br>官網：<a href="https://www.mosteirojeronimos.gov.pt" target="_blank">mosteirojeronimos.gov.pt</a></div>
+        </div>
+        <div class="book-item">
+          <span class="book-badge" style="background:#EAF3DE;color:#27500A">2–3 週前</span>
+          <div class="book-text"><strong>羅浮宮、凡爾賽宮（巴黎）</strong>　羅浮宮週二閉館，奧塞週一閉館，注意行程日期。</div>
+        </div>
+        <div class="book-item">
+          <span class="book-badge" style="background:#E6F1FB;color:#0C447C">彈性安排</span>
+          <div class="book-text"><strong>里斯本 → 波多 Alfa Pendular</strong>　葡鐵 <a href="https://www.cp.pt" target="_blank">cp.pt</a>，班次多，抵達前 1–2 週購票亦可</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>2026 年 10月27日–11月11日・法國 → 葡萄牙 → 西班牙 16 天行程</span>
+    <span>CDG 入境・BCN 出境</span>
+  </footer>
+
+</div>
+<script>
+function fc(city, btn) {
+  document.querySelectorAll('.cn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  var book = document.getElementById('book-section');
+  if (city === 'book') {
+    document.querySelectorAll('.dr, .tr').forEach(r => r.style.display = 'none');
+    book.style.display = 'block';
+    return;
+  }
+  book.style.display = 'none';
+  document.querySelectorAll('.dr').forEach(r => {
+    r.style.display = (city === 'all' || r.dataset.city === city) ? 'flex' : 'none';
+  });
+  document.querySelectorAll('.tr').forEach(r => {
+    r.style.display = city === 'all' ? 'flex' : 'none';
+  });
+}
+</script>
+</body>
+</html>
