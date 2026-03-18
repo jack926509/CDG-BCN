@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="2026 年 10月27日–11月11日，巴黎→里斯本→巴塞隆納 16 天自由行完整行程表，含每日景點、交通、訂票清單與實用須知。">
+<meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
 <title>10月27日–11月11日 巴黎→里斯本→巴塞隆納 16天行程</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
 
   :root {
     --bg:        #faf9f7;
@@ -67,6 +72,7 @@
   .cnav-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
   .cn { padding: 7px 14px; border-radius: 16px; border: 1px solid var(--border-md); background: transparent; color: var(--text-sec); cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; transition: all .15s; -webkit-tap-highlight-color: transparent; }
   .cn:hover { color: var(--text); border-color: var(--border-hi); }
+  .cn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .cn:active { transform: scale(0.96); }
   .cn.on    { background: var(--text); color: var(--bg); border-color: var(--text); }
 
@@ -135,6 +141,17 @@
     .tb { align-self: flex-start; }
     .book-item { flex-direction: column; gap: 4px; }
     .book-badge { align-self: flex-start; }
+  }
+
+  @media print {
+    body { padding: 0; background: #fff; color: #000; }
+    .cnav-row { display: none; }
+    .dr, .tr { break-inside: avoid; }
+    .dr:hover { background: inherit; }
+    .dn2 { break-inside: avoid; }
+    a { color: #000; text-decoration: underline; }
+    a[href]::after { content: " (" attr(href) ")"; font-size: 10px; color: #666; }
+    footer { margin-top: 16px; }
   }
 </style>
 </head>
@@ -500,48 +517,70 @@
   var navRow = document.querySelector('.cnav-row');
   if (!navRow) return;
 
-  navRow.addEventListener('click', function(e) {
-    var btn = e.target.closest('.cn');
-    if (!btn) return;
+  var book = document.getElementById('book-section');
+  var tips = document.getElementById('tips-section');
+  var grid = document.getElementById('grid');
 
-    var city = btn.dataset.filter;
-    if (!city) return;
-
+  function applyFilter(city, pushHash) {
     navRow.querySelectorAll('.cn').forEach(function(b) {
-      b.classList.remove('on');
-      b.setAttribute('aria-selected', 'false');
+      var isActive = b.dataset.filter === city;
+      b.classList.toggle('on', isActive);
+      b.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
-    btn.classList.add('on');
-    btn.setAttribute('aria-selected', 'true');
 
-    var book = document.getElementById('book-section');
-    var tips = document.getElementById('tips-section');
-    var dayRows = document.querySelectorAll('.dr');
-    var transitRows = document.querySelectorAll('.tr');
+    var dayRows = grid.querySelectorAll('.dr');
+    var transitRows = grid.querySelectorAll('.tr');
 
     if (city === 'book') {
       dayRows.forEach(function(r) { r.style.display = 'none'; });
       transitRows.forEach(function(r) { r.style.display = 'none'; });
+      grid.style.display = 'none';
       book.style.display = 'block';
       tips.style.display = 'none';
-      return;
-    }
-    if (city === 'tips') {
+    } else if (city === 'tips') {
       dayRows.forEach(function(r) { r.style.display = 'none'; });
       transitRows.forEach(function(r) { r.style.display = 'none'; });
+      grid.style.display = 'none';
       book.style.display = 'none';
       tips.style.display = 'block';
-      return;
+    } else {
+      grid.style.display = 'flex';
+      book.style.display = 'none';
+      tips.style.display = 'none';
+      dayRows.forEach(function(r) {
+        r.style.display = (city === 'all' || r.dataset.city === city) ? 'flex' : 'none';
+      });
+      transitRows.forEach(function(r) {
+        r.style.display = city === 'all' ? 'flex' : 'none';
+      });
     }
 
-    book.style.display = 'none';
-    tips.style.display = 'none';
-    dayRows.forEach(function(r) {
-      r.style.display = (city === 'all' || r.dataset.city === city) ? 'flex' : 'none';
-    });
-    transitRows.forEach(function(r) {
-      r.style.display = city === 'all' ? 'flex' : 'none';
-    });
+    if (pushHash) {
+      history.replaceState(null, '', city === 'all' ? location.pathname : '#' + city);
+    }
+  }
+
+  navRow.addEventListener('click', function(e) {
+    var btn = e.target.closest('.cn');
+    if (!btn) return;
+    var city = btn.dataset.filter;
+    if (!city) return;
+    applyFilter(city, true);
+    navRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  // Restore filter from URL hash on load
+  var hash = location.hash.replace('#', '');
+  var validFilters = ['all','paris','lisbon','porto','sevilla','granada','madrid','bcn','book','tips'];
+  if (hash && validFilters.indexOf(hash) !== -1) {
+    applyFilter(hash, false);
+  }
+
+  window.addEventListener('hashchange', function() {
+    var h = location.hash.replace('#', '');
+    if (h && validFilters.indexOf(h) !== -1) {
+      applyFilter(h, false);
+    }
   });
 })();
 </script>
