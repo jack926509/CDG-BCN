@@ -41,35 +41,38 @@
     background: var(--bg); color: var(--text);
     min-height: 100vh; padding: 32px 16px 64px;
     -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
   a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .container { max-width: 740px; margin: 0 auto; }
 
   header { margin-bottom: 24px; }
-  .header-title { font-size: 22px; font-weight: 500; margin-bottom: 5px; }
+  .header-title { font-size: 22px; font-weight: 500; margin-bottom: 5px; line-height: 1.4; }
   .header-sub   { font-size: 13px; color: var(--text-sec); }
 
   .meta-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 18px; }
-  .mc { background: var(--surface); border: 0.5px solid var(--border-md); border-radius: 10px; padding: 10px 12px; }
+  .mc { background: var(--surface); border: 1px solid var(--border-md); border-radius: 10px; padding: 10px 12px; }
   .ml { font-size: 11px; color: var(--text-ter); margin-bottom: 2px; }
   .mv { font-size: 13px; font-weight: 500; }
 
   .holiday-banner { background: #faeeda; color: #633806; border-radius: 8px; padding: 9px 13px; font-size: 12px; margin-bottom: 16px; line-height: 1.65; }
   @media (prefers-color-scheme: dark) { .holiday-banner { background: #2e2210; color: #f0c070; } }
 
-  .legend { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; background: var(--surface); border: 0.5px solid var(--border); border-radius: 10px; padding: 10px 14px; }
+  .legend { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; }
   .li  { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-sec); }
   .ld  { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 
   .cnav-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
-  .cn { padding: 5px 12px; border-radius: 16px; border: 1px solid var(--border-md); background: transparent; color: var(--text-sec); cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; transition: all .15s; }
+  .cn { padding: 7px 14px; border-radius: 16px; border: 1px solid var(--border-md); background: transparent; color: var(--text-sec); cursor: pointer; font-size: 12px; font-family: inherit; font-weight: 500; transition: all .15s; -webkit-tap-highlight-color: transparent; }
   .cn:hover { color: var(--text); border-color: var(--border-hi); }
+  .cn:active { transform: scale(0.96); }
   .cn.on    { background: var(--text); color: var(--bg); border-color: var(--text); }
 
-  .grid { display: flex; flex-direction: column; border: 0.5px solid var(--border-md); border-radius: 14px; overflow: hidden; }
+  .grid { display: flex; flex-direction: column; border: 1px solid var(--border-md); border-radius: 14px; overflow: hidden; }
 
-  .dr { display: flex; border-bottom: 0.5px solid var(--border); background: var(--surface); transition: background .1s; }
+  .dr { display: flex; border-bottom: 1px solid var(--border); background: var(--surface); transition: background .1s; }
   .dr:last-child { border-bottom: none; }
   .dr:hover { background: var(--surface2); }
 
@@ -78,10 +81,10 @@
   .dd { font-size: 10px; color: var(--text-ter); }
   .cb { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 9px; white-space: nowrap; margin-top: 2px; }
 
-  .dright { flex: 1; padding: 13px 14px; }
+  .dright { flex: 1; padding: 13px 14px; min-width: 0; }
   .dt { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
-  .ds { font-size: 12px; color: var(--text-sec); line-height: 1.75; }
-  .dn2 { font-size: 11px; color: var(--text-ter); margin-top: 6px; padding: 3px 9px; background: var(--surface2); border-radius: 6px; display: inline-block; line-height: 1.65; }
+  .ds { font-size: 12px; color: var(--text-sec); line-height: 1.75; word-break: break-word; }
+  .dn2 { font-size: 11px; color: var(--text-ter); margin-top: 6px; padding: 5px 9px; background: var(--surface2); border-radius: 6px; display: block; line-height: 1.65; }
   .dn2.warn  { background: #faeeda; color: #633806; }
   .dn2.alert { background: #faece7; color: #712b13; }
   .dn2.tip   { background: #e8f4ec; color: #1a5c2e; }
@@ -91,24 +94,24 @@
     .dn2.tip   { background: #122218; color: #7cd49a; }
   }
 
-  .tr { display: flex; background: var(--surface2); border-bottom: 0.5px solid var(--border); }
+  .tr { display: flex; background: var(--surface2); border-bottom: 1px solid var(--border); }
   .tl { width: 96px; flex-shrink: 0; padding: 8px 12px 8px 0; display: flex; align-items: center; justify-content: flex-end; font-size: 15px; border-right: 1.5px solid var(--border-md); }
-  .tright { flex: 1; padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  .tt { font-size: 12px; color: var(--text-sec); flex: 1; line-height: 1.5; }
-  .tb { font-size: 11px; color: var(--text-sec); background: var(--surface); border: 0.5px solid var(--border-md); border-radius: 8px; padding: 2px 8px; white-space: nowrap; flex-shrink: 0; }
+  .tright { flex: 1; padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
+  .tt { font-size: 12px; color: var(--text-sec); flex: 1; line-height: 1.5; min-width: 0; }
+  .tb { font-size: 11px; color: var(--text-sec); background: var(--surface); border: 1px solid var(--border-md); border-radius: 8px; padding: 2px 8px; white-space: nowrap; flex-shrink: 0; }
 
-  .book-panel { border: 0.5px solid var(--border-md); border-radius: 14px; overflow: hidden; background: var(--surface); }
-  .book-header { padding: 11px 15px; background: var(--surface2); font-size: 13px; font-weight: 500; border-bottom: 0.5px solid var(--border); }
+  .book-panel { border: 1px solid var(--border-md); border-radius: 14px; overflow: hidden; background: var(--surface); }
+  .book-header { padding: 11px 15px; background: var(--surface2); font-size: 13px; font-weight: 500; border-bottom: 1px solid var(--border); }
   .book-list { padding: 14px 15px; display: flex; flex-direction: column; gap: 12px; }
   .book-item { display: flex; gap: 10px; align-items: flex-start; }
   .book-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 8px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
-  .book-text { font-size: 12px; color: var(--text-sec); line-height: 1.65; }
+  .book-text { font-size: 12px; color: var(--text-sec); line-height: 1.65; min-width: 0; word-break: break-word; }
   .book-text strong { color: var(--text); font-weight: 500; }
 
   /* Practical Tips Panel */
-  .tips-panel { border: 0.5px solid var(--border-md); border-radius: 14px; overflow: hidden; background: var(--surface); margin-top: 4px; }
-  .tips-header { padding: 11px 15px; background: var(--surface2); font-size: 13px; font-weight: 500; border-bottom: 0.5px solid var(--border); }
-  .tips-section { padding: 14px 15px; border-bottom: 0.5px solid var(--border); }
+  .tips-panel { border: 1px solid var(--border-md); border-radius: 14px; overflow: hidden; background: var(--surface); margin-top: 4px; }
+  .tips-header { padding: 11px 15px; background: var(--surface2); font-size: 13px; font-weight: 500; border-bottom: 1px solid var(--border); }
+  .tips-section { padding: 14px 15px; border-bottom: 1px solid var(--border); }
   .tips-section:last-child { border-bottom: none; }
   .tips-section-title { font-size: 12px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
   .tips-item { font-size: 12px; color: var(--text-sec); line-height: 1.75; margin-bottom: 6px; padding-left: 16px; position: relative; }
@@ -116,12 +119,22 @@
   .tips-item:last-child { margin-bottom: 0; }
   .tips-item strong { color: var(--text); font-weight: 500; }
 
-  footer { margin-top: 28px; padding-top: 14px; border-top: 0.5px solid var(--border); font-size: 11px; color: var(--text-ter); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+  footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-ter); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
+    body { padding: 20px 12px 48px; }
     .meta-bar { grid-template-columns: 1fr 1fr; }
-    .dl, .tl  { width: 80px; }
+    .dl, .tl  { width: 72px; }
+    .dl { padding: 12px 8px 12px 0; }
+    .dright { padding: 12px 10px; }
     .header-title { font-size: 18px; }
+    .header-sub { font-size: 12px; }
+    .cnav-row { gap: 5px; }
+    .cn { padding: 6px 10px; font-size: 11px; }
+    .tright { flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px 10px; }
+    .tb { align-self: flex-start; }
+    .book-item { flex-direction: column; gap: 4px; }
+    .book-badge { align-self: flex-start; }
   }
 </style>
 </head>
@@ -154,18 +167,18 @@
     <div class="li"><div class="ld" style="background:#185FA5"></div>巴塞隆納</div>
   </div>
 
-  <div class="cnav-row">
-    <button class="cn on" onclick="fc('all',this)">全部</button>
-    <button class="cn" onclick="fc('paris',this)">巴黎</button>
-    <button class="cn" onclick="fc('lisbon',this)">里斯本</button>
-    <button class="cn" onclick="fc('porto',this)">波多</button>
-    <button class="cn" onclick="fc('sevilla',this)">塞維亞</button>
-    <button class="cn" onclick="fc('granada',this)">格拉納達</button>
-    <button class="cn" onclick="fc('madrid',this)">馬德里</button>
-    <button class="cn" onclick="fc('bcn',this)">巴塞隆納</button>
-    <button class="cn" onclick="fc('book',this)">🎫 訂票清單</button>
-    <button class="cn" onclick="fc('tips',this)">🧳 實用須知</button>
-  </div>
+  <nav class="cnav-row" role="tablist" aria-label="行程篩選">
+    <button class="cn on" role="tab" aria-selected="true" data-filter="all">全部</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="paris">巴黎</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="lisbon">里斯本</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="porto">波多</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="sevilla">塞維亞</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="granada">格拉納達</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="madrid">馬德里</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="bcn">巴塞隆納</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="book">🎫 訂票清單</button>
+    <button class="cn" role="tab" aria-selected="false" data-filter="tips">🧳 實用須知</button>
+  </nav>
 
   <div class="grid" id="grid">
 
@@ -364,23 +377,23 @@
       <div class="book-list">
         <div class="book-item">
           <span class="book-badge" style="background:#FAECE7;color:#712B13">2–3 個月前</span>
-          <div class="book-text"><strong>阿爾罕布拉宮（格拉納達）</strong>　全西班牙最難搶，11月7日場次需 8–9 月搶購。每日限量 6,600 張，早上場次最快售罄。<br>官網：<a href="https://tickets.alhambra-patronato.es" target="_blank">tickets.alhambra-patronato.es</a></div>
+          <div class="book-text"><strong>阿爾罕布拉宮（格拉納達）</strong>　全西班牙最難搶，11月7日場次需 8–9 月搶購。每日限量 6,600 張，早上場次最快售罄。<br>官網：<a href="https://tickets.alhambra-patronato.es" target="_blank" rel="noopener noreferrer">tickets.alhambra-patronato.es</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
-          <div class="book-text"><strong>聖家堂（巴塞隆納）</strong>　含塔樓導覽票最搶手，建議 9 月中購票。選「誕生立面塔樓 + 午後場次」最佳體驗。<br>官網：<a href="https://sagradafamilia.org" target="_blank">sagradafamilia.org</a></div>
+          <div class="book-text"><strong>聖家堂（巴塞隆納）</strong>　含塔樓導覽票最搶手，建議 9 月中購票。選「誕生立面塔樓 + 午後場次」最佳體驗。<br>官網：<a href="https://sagradafamilia.org" target="_blank" rel="noopener noreferrer">sagradafamilia.org</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
-          <div class="book-text"><strong>塞維亞王宮 Real Alcázar</strong>　指定時段票，選上午場避開觀光團。<br>官網：<a href="https://www.alcazarsevilla.org" target="_blank">alcazarsevilla.org</a></div>
+          <div class="book-text"><strong>塞維亞王宮 Real Alcázar</strong>　指定時段票，選上午場避開觀光團。<br>官網：<a href="https://www.alcazarsevilla.org" target="_blank" rel="noopener noreferrer">alcazarsevilla.org</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
-          <div class="book-text"><strong>迪士尼樂園 Disneyland Paris（10月29日）</strong>　萬聖節旺季，建議提前購票並加購 Premier Access 快速通關。<br>🔄 替代方案：不去迪士尼可改排凡爾賽宮（需整天）<br>官網：<a href="https://www.disneylandparis.com" target="_blank">disneylandparis.com</a></div>
+          <div class="book-text"><strong>迪士尼樂園 Disneyland Paris（10月29日）</strong>　萬聖節旺季，建議提前購票並加購 Premier Access 快速通關。<br>🔄 替代方案：不去迪士尼可改排凡爾賽宮（需整天）<br>官網：<a href="https://www.disneylandparis.com" target="_blank" rel="noopener noreferrer">disneylandparis.com</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#FAEEDA;color:#633806">1–2 個月前</span>
-          <div class="book-text"><strong>高鐵票 AVE（西班牙境內）</strong>　Granada→Madrid、Madrid→Barcelona，早鳥票省 30–50%。<br>⚠️ Renfe 官網對外國信用卡常刷卡失敗，建議用 <a href="https://www.thetrainline.com" target="_blank">Trainline</a> 或 <a href="https://www.omio.com" target="_blank">Omio</a> 購票更穩定</div>
+          <div class="book-text"><strong>高鐵票 AVE（西班牙境內）</strong>　Granada→Madrid、Madrid→Barcelona，早鳥票省 30–50%。<br>⚠️ Renfe 官網對外國信用卡常刷卡失敗，建議用 <a href="https://www.thetrainline.com" target="_blank" rel="noopener noreferrer">Trainline</a> 或 <a href="https://www.omio.com" target="_blank" rel="noopener noreferrer">Omio</a> 購票更穩定</div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#E1F5EE;color:#085041">1 個月前</span>
@@ -392,15 +405,15 @@
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#EAF3DE;color:#27500A">2–3 週前</span>
-          <div class="book-text"><strong>傑羅尼摩斯修道院（里斯本）</strong>　現場排隊長達 1–2 小時，強烈建議線上購票。<br>官網：<a href="https://www.mosteirojeronimos.gov.pt" target="_blank">mosteirojeronimos.gov.pt</a></div>
+          <div class="book-text"><strong>傑羅尼摩斯修道院（里斯本）</strong>　現場排隊長達 1–2 小時，強烈建議線上購票。<br>官網：<a href="https://www.mosteirojeronimos.gov.pt" target="_blank" rel="noopener noreferrer">mosteirojeronimos.gov.pt</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#EAF3DE;color:#27500A">2–3 週前</span>
-          <div class="book-text"><strong>羅浮宮（巴黎）</strong>　€22，週二閉館，注意行程日期。<br>官網：<a href="https://www.louvre.fr" target="_blank">louvre.fr</a></div>
+          <div class="book-text"><strong>羅浮宮（巴黎）</strong>　€22，週二閉館，注意行程日期。<br>官網：<a href="https://www.louvre.fr" target="_blank" rel="noopener noreferrer">louvre.fr</a></div>
         </div>
         <div class="book-item">
           <span class="book-badge" style="background:#E6F1FB;color:#0C447C">彈性安排</span>
-          <div class="book-text"><strong>里斯本 → 波多 Alfa Pendular</strong>　葡鐵 <a href="https://www.cp.pt" target="_blank">cp.pt</a>，班次多，抵達前 1–2 週購票亦可。Conforto 車廂（一等）含 WiFi 與插座，差價約 €5 值得升級</div>
+          <div class="book-text"><strong>里斯本 → 波多 Alfa Pendular</strong>　葡鐵 <a href="https://www.cp.pt" target="_blank" rel="noopener noreferrer">cp.pt</a>，班次多，抵達前 1–2 週購票亦可。Conforto 車廂（一等）含 WiFi 與插座，差價約 €5 值得升級</div>
         </div>
       </div>
     </div>
@@ -483,32 +496,54 @@
 
 </div>
 <script>
-function fc(city, btn) {
-  document.querySelectorAll('.cn').forEach(function(b) { b.classList.remove('on'); });
-  btn.classList.add('on');
-  var book = document.getElementById('book-section');
-  var tips = document.getElementById('tips-section');
-  if (city === 'book') {
-    document.querySelectorAll('.dr, .tr').forEach(function(r) { r.style.display = 'none'; });
-    book.style.display = 'block';
-    tips.style.display = 'none';
-    return;
-  }
-  if (city === 'tips') {
-    document.querySelectorAll('.dr, .tr').forEach(function(r) { r.style.display = 'none'; });
+(function() {
+  var navRow = document.querySelector('.cnav-row');
+  if (!navRow) return;
+
+  navRow.addEventListener('click', function(e) {
+    var btn = e.target.closest('.cn');
+    if (!btn) return;
+
+    var city = btn.dataset.filter;
+    if (!city) return;
+
+    navRow.querySelectorAll('.cn').forEach(function(b) {
+      b.classList.remove('on');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('on');
+    btn.setAttribute('aria-selected', 'true');
+
+    var book = document.getElementById('book-section');
+    var tips = document.getElementById('tips-section');
+    var dayRows = document.querySelectorAll('.dr');
+    var transitRows = document.querySelectorAll('.tr');
+
+    if (city === 'book') {
+      dayRows.forEach(function(r) { r.style.display = 'none'; });
+      transitRows.forEach(function(r) { r.style.display = 'none'; });
+      book.style.display = 'block';
+      tips.style.display = 'none';
+      return;
+    }
+    if (city === 'tips') {
+      dayRows.forEach(function(r) { r.style.display = 'none'; });
+      transitRows.forEach(function(r) { r.style.display = 'none'; });
+      book.style.display = 'none';
+      tips.style.display = 'block';
+      return;
+    }
+
     book.style.display = 'none';
-    tips.style.display = 'block';
-    return;
-  }
-  book.style.display = 'none';
-  tips.style.display = 'none';
-  document.querySelectorAll('.dr').forEach(function(r) {
-    r.style.display = (city === 'all' || r.dataset.city === city) ? 'flex' : 'none';
+    tips.style.display = 'none';
+    dayRows.forEach(function(r) {
+      r.style.display = (city === 'all' || r.dataset.city === city) ? 'flex' : 'none';
+    });
+    transitRows.forEach(function(r) {
+      r.style.display = city === 'all' ? 'flex' : 'none';
+    });
   });
-  document.querySelectorAll('.tr').forEach(function(r) {
-    r.style.display = city === 'all' ? 'flex' : 'none';
-  });
-}
+})();
 </script>
 </body>
 </html>
